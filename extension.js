@@ -1,7 +1,7 @@
 /*
  * @Author: corinchen
  * @Date: 2022-12-14 16:53:43
- * @LastEditTime: 2022-12-15 11:27:22
+ * @LastEditTime: 2022-12-15 13:12:21
  * @LastEditors: corinchen
  * @Description: 
  * @FilePath: \upload-to-tencent\extension.js
@@ -34,7 +34,6 @@ function activate(context) {
 			return
 		}
 		const localFile = uri[0].fsPath
-		const fileName = stringFormat.getFileName(localFile)
 		let url = await upload.uploadImg(localFile, tencentConfig)
 		if(tencentConfig.domain) {
 			url = url.replace(/cos.*.com/g, tencentConfig.domain)

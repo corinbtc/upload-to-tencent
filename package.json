@@ -2,10 +2,10 @@
   "name": "upload-to-tencent",
   "publisher": "corinchen",
   "displayName": "UPLOAD-TO-TENCENT",
-  "description": "",
-  "version": "0.0.1",
+  "description": "腾讯云图片上传工具",
+  "version": "0.0.3",
   "engines": {
-    "vscode": "^1.74.0"
+    "vscode": ">=1.68.0"
   },
   "categories": [
     "Other"
@@ -79,7 +79,7 @@
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
+    "@types/vscode": ">=1.68.0",
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
@@ -91,5 +91,9 @@
   },
   "dependencies": {
     "cos-nodejs-sdk-v5": "^2.11.18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/corinbtc/upload-to-tencent"
   }
 }
