@@ -1,0 +1,95 @@
+{
+  "name": "upload-to-tencent",
+  "publisher": "corinchen",
+  "displayName": "UPLOAD-TO-TENCENT",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.chooseImage",
+        "title": "选择图片"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "extension.chooseImage",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "腾讯云图片上传工具配置",
+        "properties": {
+          "upload_image.SecretKey": {
+            "type": "string",
+            "default": "",
+            "description": "设置腾讯云上传SecretKey"
+          },
+          "upload_image.SecretId": {
+            "type": "string",
+            "default": "",
+            "description": "设置腾讯云上传SecretId"
+          },
+          "upload_image.Region": {
+            "type": "string",
+            "default": "",
+            "description": "设置腾讯云上传Region"
+          },
+          "upload_image.Bucket": {
+            "type": "string",
+            "default": "",
+            "description": "设置腾讯云上传上传空间Bucket"
+          },
+          "upload_image.domain": {
+            "type": "string",
+            "default": "",
+            "description": "设置腾讯云自定义加速cdn"
+          },
+          "upload_image.Module": {
+            "type": "string",
+            "default": "image",
+            "description": "设置腾讯云上传上传目录"
+          },
+          "upload_image.gzip": {
+            "type": "boolean",
+            "default": "true",
+            "description": "是否启用图片压缩(暂不支持)"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3",
+    "@vscode/test-electron": "^2.2.0"
+  },
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.11.18"
+  }
+}
